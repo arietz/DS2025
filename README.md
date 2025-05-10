@@ -1,3 +1,4 @@
+ALEKSANDER RIETZ and ADAM TOMASZEWSKI
 # DS2025
 ## Group consists of: Aleksander Rietz and Adam Tomaszewski
 ### [Report 1.](Report1/Report1.md)
