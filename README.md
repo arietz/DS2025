@@ -6,3 +6,4 @@ ALEKSANDER RIETZ and ADAM TOMASZEWSKI
 ### [Report 3. Data Cleansing](Report3/Exercise4.md)
 ### [Report 4. Data Visualization](Report4/Report4.md)
 ### [Report 5. Univariate Analysis](Report5/Report5.md)
+### [Report 6. Bivariate Analysis](Report6/Report6.md)
