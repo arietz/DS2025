@@ -7,3 +7,4 @@ ALEKSANDER RIETZ and ADAM TOMASZEWSKI
 ### [Report 4. Data Visualization](Report4/Report4.md)
 ### [Report 5. Univariate Analysis](Report5/Report5.md)
 ### [Report 6. Bivariate Analysis](Report6/Report6.md)
+### [Report 7. Regression Analysis](Report7/Report7.md)
