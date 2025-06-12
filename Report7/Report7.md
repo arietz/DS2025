@@ -706,6 +706,12 @@ What do the above results mean? Write down the model and interpret it.
 
 Discuss model accuracy.
 
+
+```python
+# Each additional meter from the MRT cuts about 7.3 off the price, and both terms are highly significant (p<0.001).
+# It explains a fair chunk of variation (~45%), I there’s room to improve the model.
+```
+
 ## Model diagnostics
 
 ### 4 Diagnostic plots
@@ -719,11 +725,19 @@ plt.show()
 
 
     
-![png](Exercise10_files/Exercise10_31_0.png)
+![png](Exercise10_files/Exercise10_32_0.png)
     
 
 
 The four plots show...
+
+
+```python
+# 1. how well the straight line follows the observed price vs distance
+# 2. patterns in the errors
+# 3. shows the “pure” link between price and distance by plotting their residuals against each other
+# 4. draws the distance-based part of the prediction plus the residuals
+```
 
 ### Outliers and high levarage points:
 
@@ -737,11 +751,17 @@ plt.show()
 
 
     
-![png](Exercise10_files/Exercise10_34_0.png)
+![png](Exercise10_files/Exercise10_36_0.png)
     
 
 
 Discussion:
+
+
+```python
+# plot shows a few observations with both large residuals (270) and high leverage (249, 136, 47), they pull the fitted line more than most points
+# we may want to inspect or exclude these influential cases to see how much they’re driving the estimated slope
+```
 
 
 ## Multiple Regression Model
@@ -1013,13 +1033,13 @@ plt.show()
 
 
     
-![png](Exercise10_files/Exercise10_43_0.png)
+![png](Exercise10_files/Exercise10_46_0.png)
     
 
 
 
     
-![png](Exercise10_files/Exercise10_43_1.png)
+![png](Exercise10_files/Exercise10_46_1.png)
     
 
 
@@ -1071,6 +1091,12 @@ print(model3.summary())
 Discuss the results...
 
 
+
+
+```python
+# All three factors are significant and R squared jumps to 0.58, so adding age and store count helps explain prices.
+# Older homes are cheaper, more convenience stores nearby raise prices, and farther distance lowers prices.
+```
 
 
 ```python
@@ -1177,6 +1203,11 @@ Discuss the results...
 
 
 
+
+```python
+# All VIFs are well below common cutoffs (2, 5 or 10), so there’s probably no need to worry
+```
+
 Finally we test our best model on test dataset (change, if any transformation on dist_to_mrt_m was needed):
 
 
@@ -1202,6 +1233,11 @@ print(f"Test RMSE: {rmse:.2f}")
     
 
 Interpret results...
+
+
+```python
+# RMSE of 8.38 means our model’s predictions are off by about 8.38 on average.
+```
 
 
 ## Variable selection using best subset regression
@@ -1360,7 +1396,7 @@ plt.show()
 
 
     
-![png](Exercise10_files/Exercise10_63_0.png)
+![png](Exercise10_files/Exercise10_69_0.png)
     
 
 
@@ -1370,19 +1406,19 @@ plt.show()
 
 
     
-![png](Exercise10_files/Exercise10_63_2.png)
+![png](Exercise10_files/Exercise10_69_2.png)
     
 
 
 
     
-![png](Exercise10_files/Exercise10_63_3.png)
+![png](Exercise10_files/Exercise10_69_3.png)
     
 
 
 
     
-![png](Exercise10_files/Exercise10_63_4.png)
+![png](Exercise10_files/Exercise10_69_4.png)
     
 
 
@@ -1447,3 +1483,12 @@ print(f"Cross-validated RMSE: {cv_rmse:.2f}")
 4. How to compare similar, but competing models?
 5. What is VIF telling us?
 6. How to choose best set of predictors for the model?
+
+
+```python
+# 2. Cross‐validation checks that our model generalizes to new data and guards against overfitting.
+# 3. Diagnostic plots reveal non‐normal or heteroskedastic residuals, outliers, leverage points, and any non‐linear patterns.
+# 4. Compare competing models by their R squared/Adj-R sqiared, AIC/BIC, cross‐validated error (e.g. RMSE), and interpretability.
+# 5. VIF measures how much a predictor’s variance is inflated by correlation with other predictors—high VIF warns of multicollinearity.
+# 6. Choose predictors by theory, significance, low VIF, improvement in fit (deltaR squared/AIC) and generalization (CV error).
+```
